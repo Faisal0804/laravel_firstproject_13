@@ -1,27 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/menu')}}">Menu</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/blog')}}">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/review')}}">Review</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('/contact')}}">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header class="header-area"> 
+        <div class="container">
+            <!-- Header Start -->
+            <div class="header"> 
+                <!-- Logo Start -->
+                <a href="index.html" class="logo">CoffeeHouse</a>
+                <!-- Logo End -->
+                
+                <!-- Menu Start -->
+                <div class="menu"> 
+                    <ul>
+                        <li><a href="{{url('/')}}">Home</a></li>
+                        <li><a href="{{url('/about')}}">About</a></li>
+                        <li><a href="{{url('/menu')}}">Menus</a></li>
+                        <li><a href="{{url('/review')}}">Reviews</a></li>
+                        <li><a href="{{url('/blog')}}">Blogs</a></li>
+                    </ul>
+                </div> 
+                <!-- Menu End -->
+
+                <!-- Header Icon Start -->
+                <div class="header-icon"> 
+                    <!-- Search Btn Start -->
+                    <div class="search-btn"> 
+                        <i class='bx bx-search'></i>
+                    </div> 
+                    <!-- Search Btn End -->
+
+                    <!-- Cart Btn Start -->
+                    <div class="cart-btn"> 
+                        <i class='bx bx-cart'></i>
+                    </div> 
+                    <!-- Cart Btn End -->
+
+                    <!-- Menu Icon Start -->
+                    <div class="menu-icon"> 
+                        <i class='bx bx-menu'></i>
+                    </div> 
+                    <!-- Menu Icon Start -->
+                </div> 
+                <!-- Header Icon End -->
+            </div> 
+            <!-- Header End -->
+        </div>
+    </header> 
+
+    <form class="search-form"> 
+        <input type="search" placeholder="Type Here.....">
+        <input type="submit" value="Search">
+    </form> 
