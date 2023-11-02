@@ -22,3 +22,5 @@ Route::resource('basic',BacicController::class);
 
 Route::get('/',[DemonContriller::class,'home']);
 Route::get('/Elo',[EloquoentController::class,'onToMany']);
+Route::get('/manyElo',[EloquoentController::class,'manyToMany']);
+Route::get('/oneThrough',[EloquoentController::class,'oneThrouh']);

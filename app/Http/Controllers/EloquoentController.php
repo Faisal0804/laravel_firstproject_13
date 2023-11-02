@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Category;
+use App\Models\Machanic;
 
 class EloquoentController extends Controller
 {
@@ -23,4 +25,22 @@ class EloquoentController extends Controller
 
 
     }
+
+    public function manyToMany(){
+       // $post=Post::with("categories")->get();
+        //return $post;
+
+        //$post=Category::with("posts")->get();
+       // return $post;
+
+  }
+
+  public function oneThrouh(){
+    $mac=Machanic::with("CarOwnners")->get();
+    return $mac;
+
+   
+}
+
+  
 }
