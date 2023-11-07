@@ -10,6 +10,56 @@
 
     <script>
         $(document).ready(function(){
-           // alert("hello world");
+            $(document).on('click','.add_product',function(event){
+                event.preventDefault();
+                 let pname= $('#pname').val();
+                 let price= $('#price').val();
+                // alert(JSON.stringify(pname+price));
+
+                $.ajax(
+                    {
+                        url:"{{route('add.product')}}",
+                        method:"post",
+                        data:{
+                            pname:pname,
+                            price:price,
+                        },
+                        success:function(response){
+
+                           // $('#successMes').append('<span class="text-success">Data insert success</span>');
+
+                          if(response.status="success"){
+                            $('#addModal').modal('hide');
+                            $('#addproduct')[0].reset();
+                            $('.table').load(location.href+' .table');
+
+                          }
+
+                        },
+                        error:function(error){
+                            $("#ErroMsg").find("ul").html('');
+                            $.each(error.responseJSON.errors, function(key, value ) {
+                            $('#ErroMsg').find("ul").append('<li class="text-danger" >'+value+'</li>');
+                    });
+
+
+                        }
+
+
+
+                   }
+
+
+
+                );
+
+
+
+            }
+
+
+
+            );
+         
         })
     </script>

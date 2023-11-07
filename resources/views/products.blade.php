@@ -25,20 +25,27 @@
     </tr>
   </thead>
   <tbody>
+  @foreach($product as $si=>$product)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
+   
+      <th scope="row">{{$si+1}}</th>
+      <td>{{$product->pname}}</td>
+      <td>{{$product->price}}</td>
       <td>
        <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
        <a href="" class="btn btn-danger"><i class="las la-trash"></i></a>
         
       </td>
     </tr>
+    @endforeach
+    
+   
    
    
   </tbody>
 </table>
+
+
     
     @include("js.productJs")
     @include("inc.add_product")

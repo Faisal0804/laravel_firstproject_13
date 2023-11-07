@@ -9,16 +9,32 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <form action="" method="post">
-        @csrf
+
+        <div id="ErroMsg">
+
+        <ul type="none"><li ></li></ul>
+           
+
+        </div>
+
+        <div id="successMes">
+           
+
+        </div>
+       
+       
+        
+
+       <form action="{{route('add.product')}}" method="post" id="addproduct">
+         @csrf
          <div class="form">
            <label for="">Product Name</label>
-           <input  type="text" name="pname" id="pname">
+           <input  type="text" name="pname" id="pname" >
          </div>
 
          <div class="form mt-3">
            <label for="">Product price</label>
-           <input type="text" name="price" id="price">
+           <input type="text" name="price" id="price" >
          </div>
          
        </form>
