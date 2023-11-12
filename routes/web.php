@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[ProductController::class,'product'] );
 Route::post('/product', [ProductController::class,'store'])->name('add.product');
+Route::post('/update-product', [ProductController::class,'updateProduct'])->name('update.product');

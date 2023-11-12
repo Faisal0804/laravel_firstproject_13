@@ -32,7 +32,16 @@
       <td>{{$product->pname}}</td>
       <td>{{$product->price}}</td>
       <td>
-       <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
+       <a href="" class="btn btn-success update_input_product"
+         data-bs-toggle="modal"
+         data-bs-target="#updateModal"
+         data-id="{{$product->id}}"
+         data-pname="{{$product->pname}}"
+         data-price="{{$product->price}}"    
+       >
+        <i  class="las la-edit "    
+        
+        ></i></a>
        <a href="" class="btn btn-danger"><i class="las la-trash"></i></a>
         
       </td>
@@ -49,6 +58,8 @@
     
     @include("js.productJs")
     @include("inc.add_product")
+    @include("inc.update_product")
+  
    
   </body>
 </html>

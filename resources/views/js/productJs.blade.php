@@ -45,11 +45,7 @@
 
                         }
 
-
-
                    }
-
-
 
                 );
 
@@ -60,6 +56,87 @@
 
 
             );
-         
-        })
+
+
+            //select for update
+
+            $(document).on('click','.update_input_product',function(event){
+
+                let id= $(this).data('id');
+                let pname= $(this).data('pname');
+                let price= $(this).data('price');
+
+                $('#up_id').val(id)
+                $('#up_pname').val(pname)
+                $('#up_price').val(price)
+
+            }
+            
+            
+            
+            );
+
+
+
+           
+
+      //update data
+
+      $(document).on('click','.update_product',function(event){
+                event.preventDefault();
+                 let up_id= $('#up_id').val();
+                 let up_pname= $('#up_pname').val();
+                 let up_price= $('#up_price').val();
+                // alert(JSON.stringify(pname+price));
+
+                $.ajax(
+                    {
+                        url:"{{route('update.product')}}",
+                        method:"post",
+                        data:{
+                            up_id:up_id,
+                            up_pname:up_pname,
+                            up_price:up_price,
+                        },
+                        success:function(response){
+
+                           // $('#successMes').append('<span class="text-success">Data insert success</span>');
+
+                          if(response.status="success"){
+                            $('#updateModal').modal('hide');
+                            $('#updateproduct')[0].reset();
+                            $('.table').load(location.href+' .table');
+
+                          }
+
+                        },
+                        error:function(error){
+                            $("#ErroMsg").find("ul").html('');
+                            $.each(error.responseJSON.errors, function(key, value ) {
+                            $('#ErroMsg').find("ul").append('<li class="text-danger" >'+value+'</li>');
+                    });
+
+
+                        }
+
+                   }
+
+                );
+
+
+
+            }
+
+
+
+            );
+
+
+
+
+
+
+
+           
+    })
     </script>
