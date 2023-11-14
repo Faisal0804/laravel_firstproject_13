@@ -19,40 +19,52 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">produc</th>
+      <th scope="col">product</th>
       <th scope="col">price</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-  @foreach($product as $si=>$product)
+  @foreach($product as $si=>$products)
     <tr>
    
       <th scope="row">{{$si+1}}</th>
-      <td>{{$product->pname}}</td>
-      <td>{{$product->price}}</td>
+      <td>{{$products->pname}}</td>
+      <td>{{$products->price}}</td>
       <td>
        <a href="" class="btn btn-success update_input_product"
          data-bs-toggle="modal"
          data-bs-target="#updateModal"
-         data-id="{{$product->id}}"
-         data-pname="{{$product->pname}}"
-         data-price="{{$product->price}}"    
+         data-id="{{$products->id}}"
+         data-pname="{{$products->pname}}"
+         data-price="{{$products->price}}"    
        >
         <i  class="las la-edit "    
         
         ></i></a>
-       <a href="" class="btn btn-danger"><i class="las la-trash"></i></a>
+       <a href="" class="btn btn-danger delete_product "
+       data-url="{{route('product.delete', $products->id)}}"
+
+       ><i class="las la-trash"></i></a>
         
       </td>
     </tr>
-    @endforeach
     
+    @endforeach
+
+
+
    
    
    
   </tbody>
 </table>
+{{ $product->links() }}
+
+
+
+
+  
 
 
     

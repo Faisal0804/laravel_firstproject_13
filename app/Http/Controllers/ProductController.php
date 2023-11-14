@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Cache\RateLimiting\Limit;
+use App\Models\Product;
 use Illuminate\Http\Request;
-
 class ProductController extends Controller
 {
     public function product(){
-       $product =Product::orderBy("products.id",'desc')->take(5)->get(); 
-        return view("products",['product'=>$product]);
+      // $product =Product::orderBy("products.id",'desc')->take(5)->get();
+         $product=Product::latest()->paginate(5);
+
+        return view("products", ['product'=>$product]);
     }
 
     public function store(Request $request){
@@ -43,6 +44,14 @@ class ProductController extends Controller
         
 
     }
+
+    public function delete($id){
+        Product::find($id)->delete();
+        return response()->json(['success'=>'prodct Deleted Successfully!']);
+    }
+
+
+ 
 
    
 

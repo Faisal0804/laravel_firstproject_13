@@ -131,6 +131,35 @@
 
             );
 
+            //delete
+
+
+            
+            $(document).on('click','.delete_product',function(event){
+                event.preventDefault();
+                var productURL = $(this).data('url');
+                //var trObj = $(this);
+
+                  if(confirm("Are you sure you want to remove this user?") == true){
+                    $.ajax({
+                     url: productURL,
+                     type: 'DELETE',
+                     dataType: 'json',
+                    
+                    success:function(response){ 
+
+                            if(response.status="success"){
+                          
+                            $('.table').load(location.href+' .table');
+
+                            }
+
+                            }
+                    });
+                 }
+  
+              });
+
 
 
 
