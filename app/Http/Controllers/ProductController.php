@@ -50,10 +50,20 @@ class ProductController extends Controller
         return response()->json(['success'=>'prodct Deleted Successfully!']);
     }
 
+    function search(Request $request){
+       
+        $product = Product::where('pname', 'like', '%' . $request->search. '%')
+                  ->orWhere('price', 'like', '%' .$request->search.'%')
+                  ->orderBy('id', 'desc')
+                  ->paginate(5);
+                  return view('products',['product'=>$product]);
 
+
+    }
+
+    
  
 
    
-
     
 }
