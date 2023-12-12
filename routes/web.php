@@ -25,3 +25,5 @@ Route::get('/product-search', [ProductController::class, 'search'])->name('produ
 
 Route::get('/image',[ImageController::class,'image']);
 Route::post('/store',[ImageController::class,'image_store'])->name('image.store');
+Route::get('/multiple-image', [ImageController::class, 'index']);
+Route::post('/upload-multiple-image-ajax', [ImageController::class, 'saveUpload'])->name('upload-multiple-image');

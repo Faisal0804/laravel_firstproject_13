@@ -33,4 +33,50 @@ class ImageController extends Controller
 
         }
     }
+
+
+    public function index()
+    {
+        return view('MultiImage.multiImage');
+    }
+
+    public function saveUpload(Request $request)
+    {
+        
+        $validatedData = $request->validate([
+        'image' => 'required',
+        'image.*' => 'mimes:jpg,png,jpeg,gif,svg'
+        ]);
+
+        if($request->TotalImages > 0)
+        {
+               
+           for ($x = 0; $x < $request->TotalImages; $x++) 
+           {
+
+               if ($request->hasFile('image'.$x)) 
+                {
+                    $file= $request->file('image'.$x);
+
+                    $image = $file->move('public/images');
+                    $image= $file->getClientOriginalName();
+
+                    //$insert[$x]['name'] = $name;
+                    $insert[$x]['image'] = $image;
+                }
+           }
+
+           Image::insert($insert);
+           return response()->json([
+            'status'=>'success'
+         ]);
+
+        }
+    }
+
+
+
+
+
+
 }
